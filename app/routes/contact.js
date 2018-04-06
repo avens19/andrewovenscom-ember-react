@@ -1,4 +1,8 @@
-import Route from '@ember/routing/route';
+import { route } from 'ember-redux';
+import { loadContactsAsync } from '../actions/contactActions';
 
-export default Route.extend({
-});
+export default route({
+  model(dispatch) {
+    dispatch(loadContactsAsync())
+  }
+})();

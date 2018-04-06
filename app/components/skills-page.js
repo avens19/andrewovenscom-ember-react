@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { connect } from 'ember-redux';
-import { loadSkillsAsync } from '../actions/skillActions';
 
 var stateToComputed = (state) => {
   return {
@@ -8,16 +7,7 @@ var stateToComputed = (state) => {
   };
 };
 
-var dispatchToActions = (dispatch) => {
-  return {
-    loadSkills: () => dispatch(loadSkillsAsync())
-  };
-};
-
 const SkillsPage = Component.extend({
-  willInsertElement() {
-    this.send('loadSkills');
-  }
 });
 
-export default connect(stateToComputed, dispatchToActions)(SkillsPage);
+export default connect(stateToComputed)(SkillsPage);
